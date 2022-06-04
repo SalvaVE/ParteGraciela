@@ -1,22 +1,25 @@
 package modelo;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
 public class IProducto {
-
-    int id;
-    String nombre;
+    
+    int idP;
+    String nombreP;
     String desProducto;
-    double stock;
+   double stock;
     double precio;
     String unidadDeMedida;
     int estadoP;
     int categoria;
-    int fecha;
+    String dateTime  = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
+    
 
     Connection cnn;
     Statement state;
@@ -27,29 +30,31 @@ public class IProducto {
             Class.forName("com.mysql.jdbc.Driver");
             cnn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_inventario?zeroDateTimeBehavior=convertToNull", "root", "");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ICategoria.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IProducto.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ICategoria.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(IProducto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public IProducto(int id, String nombre, String desProducto, float stock, float precio, String unidadDeMedida, int estadoP, int categoria, int fecha) {
-        this.id = id;
-        this.nombre = nombre;
+    public IProducto(int idP, String nombreP, String desProducto, double stock, double precio, String unidadDeMedida, int estadoP, int categoria) {
+        this.idP = idP;
+        this.nombreP = nombreP;
         this.desProducto = desProducto;
         this.stock = stock;
         this.precio = precio;
         this.unidadDeMedida = unidadDeMedida;
         this.estadoP = estadoP;
         this.categoria = categoria;
-        this.fecha = fecha;
     }
+
+    
 
     
 
     public boolean insertarDatosP() {
         try {
-            String miQuery = "insert into tb_producto values('" + id + "', '" + nombre + "', '" + desProducto + "', '" + stock + "', '" + precio + "', '" + unidadDeMedida + "', '" + estadoP + "', '" + categoria + "', '" + fecha + "');";
+            String miQuery = "insert tb_producto values('" + idP + "', '" + nombreP + "', '" + desProducto + "', '" + stock + "',"
+                    + " '" + precio + "', '" + unidadDeMedida + "', '" + estadoP + "', '" + categoria + "', '"  + dateTime +"');";
             int estado = 0;
             state = cnn.createStatement();
             estado = state.executeUpdate(miQuery);
@@ -57,25 +62,26 @@ public class IProducto {
                 return true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(IProducto.class.getName()).log(Level.SEVERE, null, ex);
+         Logger.getLogger(IProducto.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
+    
 
-    public int getId() {
-        return id;
+    public int getIdP() {
+        return idP;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdP(int idP) {
+        this.idP = idP;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreP() {
+        return nombreP;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreP(String nombreP) {
+        this.nombreP = nombreP;
     }
 
     public String getDesProducto() {
@@ -126,12 +132,14 @@ public class IProducto {
         this.categoria = categoria;
     }
 
-    public int getFecha() {
-        return fecha;
+    public String getDateTime() {
+        return dateTime;
     }
 
-    public void setFecha(int fecha) {
-        this.fecha = fecha;
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
     }
+
+
 
 }

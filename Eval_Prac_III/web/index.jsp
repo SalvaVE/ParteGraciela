@@ -30,15 +30,15 @@
         
         <h1>Registrar Producto</h1>
         <form action="registrarproducto.do" method="POST">                                                    
-        ID: <input type="text" name="txtId" value="" /><br><br>
-        Nombre: <input type="text" name="txtNombre" value="" /><br><br>
+        ID: <input type="text" name="txtIdP" value="" /><br><br>
+        Nombre: <input type="text" name="txtNombreP" value="" /><br><br>
         DesProducto: <input type="text" name="txtDesProducto" value="" /><br><br>
         Stock: <input type="text" name="txtStock" value="" /><br><br>
         Precio: <input type="text" name="txtPrecio" value="" /><br><br>
         Unidad de Medida: <input type="text" name="txtUnidadDeMedida" value="" /><br><br>
         EstadoP: <input type="text" name="txtEstadoP" value="" /><br><br>
         Categoria: <input type="text" name="txtCategoria" value="" /><br><br>
-        Fecha: <input type="text" name="txtFecha" value="" /><br><br>
+       
        <input type="submit" value="Guardar"/>
         </form>
     </body>

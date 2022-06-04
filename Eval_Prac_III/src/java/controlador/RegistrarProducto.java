@@ -71,29 +71,30 @@ public class RegistrarProducto extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        int id = Integer.parseInt(request.getParameter("txtId")) ;
-        String nombre = request.getParameter("txtNombre");
+        int idP = Integer.parseInt(request.getParameter("txtIdP")) ;
+        String nombreP = request.getParameter("txtNombreP");
         String desProducto = request.getParameter("txtDesProducto");
         double stock = Double.parseDouble(request.getParameter("txtStock")) ;
         double precio = Double.parseDouble(request.getParameter("txtPrecio"));
         String unidadDeMedida = request.getParameter("txtUnidadDeMedida");
         int estadoP = Integer.parseInt(request.getParameter("txtEstadoP"));
         int categoria = Integer.parseInt(request.getParameter("txtCategoria"));
-        int fecha = Integer.parseInt(request.getParameter("txtFecha"));
-        
+      
+       
       
         
         IProducto producto = new IProducto();
-        producto.setId(id);
-        producto.setNombre(nombre);
+        producto.setIdP(idP);
+        producto.setNombreP(nombreP);
         producto.setDesProducto(desProducto);
         producto.setStock(stock);
         producto.setPrecio(precio);
         producto.setUnidadDeMedida(unidadDeMedida);
         producto.setEstadoP(estadoP);
         producto.setCategoria(categoria);
-        producto.setFecha(fecha);
         
+       
+     
         
         if(producto.insertarDatosP() == true) {
             request.getRequestDispatcher("Registro.jsp").forward(request, response);

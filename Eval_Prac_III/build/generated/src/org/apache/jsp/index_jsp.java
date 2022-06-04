@@ -72,12 +72,10 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <a href=\"/Eval_Prac_III/PageModificar.jsp\">Modificar</a>\n");
       out.write("        \n");
       out.write("        <h1>Registrar Producto</h1>\n");
-      out.write("        <form action=\"registrar.do\" method=\"POST\">                                                    \n");
-      out.write("           \n");
-      out.write("    \n");
-      out.write("        ID: <input type=\"text\" name=\"txtId\" value=\"\" /><br><br>\n");
-      out.write("        Nombre: <input type=\"text\" name=\"txtNombre\" value=\"\" /><br><br>\n");
-      out.write("        DesProducto : <input type=\"text\" name=\"txtDesProducto\" value=\"\" /><br><br>\n");
+      out.write("        <form action=\"registrarproducto.do\" method=\"POST\">                                                    \n");
+      out.write("        ID: <input type=\"text\" name=\"txtIdP\" value=\"\" /><br><br>\n");
+      out.write("        Nombre: <input type=\"text\" name=\"txtNombreP\" value=\"\" /><br><br>\n");
+      out.write("        DesProducto: <input type=\"text\" name=\"txtDesProducto\" value=\"\" /><br><br>\n");
       out.write("        Stock: <input type=\"text\" name=\"txtStock\" value=\"\" /><br><br>\n");
       out.write("        Precio: <input type=\"text\" name=\"txtPrecio\" value=\"\" /><br><br>\n");
       out.write("        Unidad de Medida: <input type=\"text\" name=\"txtUnidadDeMedida\" value=\"\" /><br><br>\n");

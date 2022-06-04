@@ -81,7 +81,7 @@ public ICategoria() {
     }
  public boolean ModificarRegistro(){
         try {
-            String miQuery = "update tb_categoria set id_categoria =('"+id+"'), nom_categoria =('"+nombre+"'), estado_categoria = ('"+estado+"');";
+            String miQuery = "update tb_categoria set nom_categoria =('"+nombre+"'), estado_categoria = ('"+estado+"') where id_categoria =('"+id+"');";
             int estado = 0;
             state = cnn.createStatement();
             estado = state.executeUpdate(miQuery);
